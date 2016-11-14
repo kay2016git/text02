@@ -13,7 +13,8 @@ eventEmitter.on('connection',listener1)
 eventEmitter.addListener('connection',listener2);
 
 var count = require('events').listenerCount(eventEmitter,'connection');
-console.log("listener number is "+count);
+console.log("listener number is "+ count);
+console.log("监听数组有"+eventEmitter.listeners('connection'))
 
 eventEmitter.emit('connection');
 
@@ -21,5 +22,7 @@ eventEmitter.removeListener('connection',listener2);
 console.log("不再监听listener2")
 
 console.log("listener number is "+count);
+
+console.log("监听数组有"+eventEmitter.listeners('connection'))
 
 eventEmitter.emit('connection');
